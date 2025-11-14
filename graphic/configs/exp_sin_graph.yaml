@@ -1,0 +1,20 @@
+type: function
+
+curves:
+  - formula: "\\exp(\\sin(x))"
+    params: {n_points: 1000}
+    x_range: [0, 10]
+    style:
+      linestyle: "-"
+      color: "blue"
+      linewidth: 2
+      label: "e^(sin(x))"
+
+axes:
+  xlim: [0, 10]
+  ylim: null
+  xlabel: "x"
+  ylabel: "y"
+  grid: true
+
+output: "exp_sin_graph.svg"
