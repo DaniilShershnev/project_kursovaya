@@ -1,0 +1,29 @@
+type: function
+
+curves:
+  - formula: "x^2"
+    params: {}
+    x_range: [0, 10]
+    style:
+      linestyle: "-"
+      color: "blue"
+      linewidth: 1.5
+      label: "x²"
+  
+  - formula: "2*x + 1"
+    params: {}
+    x_range: [0, 10]
+    style:
+      linestyle: "--"
+      color: "red"
+      linewidth: 1.5
+      label: "2x+1"
+
+axes:
+  xlim: [0, 10]
+  ylim: [0, 100]
+  xlabel: "x"
+  ylabel: "y"
+  grid: true
+
+output: "example_function.svg"

@@ -1,0 +1,61 @@
+(* ПРОСТОЙ КОД ДЛЯ КОПИРОВАНИЯ В MATHEMATICA *)
+
+(* Параметры *)
+a = 0; j = 2; v = 1; c = 0.3; b = 1*10^(-12); h = 0.07;
+
+(* Решаем для s0=100 *)
+sol1 = NDSolve[{
+  s'[t] == a*Exp[v*w[t]] - s[t]*Exp[(v-j)*w[t]],
+  w'[t] == c*(1 - w[t] - b*Exp[h*s[t]]*(1 + w[t])),
+  s[0] == 100, w[0] == 0.8
+}, {s, w}, {t, 0, 7}];
+
+(* Решаем для s0=200 *)
+sol2 = NDSolve[{
+  s'[t] == a*Exp[v*w[t]] - s[t]*Exp[(v-j)*w[t]],
+  w'[t] == c*(1 - w[t] - b*Exp[h*s[t]]*(1 + w[t])),
+  s[0] == 200, w[0] == 0.8
+}, {s, w}, {t, 0, 7}];
+
+(* Решаем для s0=300 *)
+sol3 = NDSolve[{
+  s'[t] == a*Exp[v*w[t]] - s[t]*Exp[(v-j)*w[t]],
+  w'[t] == c*(1 - w[t] - b*Exp[h*s[t]]*(1 + w[t])),
+  s[0] == 300, w[0] == 0.8
+}, {s, w}, {t, 0, 7}];
+
+(* Решаем для s0=400 *)
+sol4 = NDSolve[{
+  s'[t] == a*Exp[v*w[t]] - s[t]*Exp[(v-j)*w[t]],
+  w'[t] == c*(1 - w[t] - b*Exp[h*s[t]]*(1 + w[t])),
+  s[0] == 400, w[0] == 0.8
+}, {s, w}, {t, 0, 7}];
+
+(* Решаем для s0=500 *)
+sol5 = NDSolve[{
+  s'[t] == a*Exp[v*w[t]] - s[t]*Exp[(v-j)*w[t]],
+  w'[t] == c*(1 - w[t] - b*Exp[h*s[t]]*(1 + w[t])),
+  s[0] == 500, w[0] == 0.8
+}, {s, w}, {t, 0, 7}];
+
+(* Строим график *)
+Plot[{
+  Evaluate[s[t] /. sol1],
+  Evaluate[s[t] /. sol2],
+  Evaluate[s[t] /. sol3],
+  Evaluate[s[t] /. sol4],
+  Evaluate[s[t] /. sol5]
+}, {t, 0, 7},
+  PlotRange -> {{0, 7}, {0, 500}},
+  PlotStyle -> {Blue, Red, Green, Orange, Purple},
+  PlotLegends -> {"s0=100", "s0=200", "s0=300", "s0=400", "s0=500"},
+  AxesLabel -> {"t", "s"},
+  GridLines -> Automatic
+]
+
+(* Проверка производных в t=0 *)
+Print["s0=100: ds/dt(0) = ", N[0*Exp[1*0.8] - 100*Exp[(1-2)*0.8], 6]];
+Print["s0=100: b*Exp[h*s0] = ", N[1*10^(-12)*Exp[0.07*100], 6]];
+Print[""];
+Print["s0=500: ds/dt(0) = ", N[0*Exp[1*0.8] - 500*Exp[(1-2)*0.8], 6]];
+Print["s0=500: b*Exp[h*s0] = ", N[1*10^(-12)*Exp[0.07*500], 6]];

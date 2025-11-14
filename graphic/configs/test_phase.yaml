@@ -1,0 +1,31 @@
+type: phase_portrait
+
+vector_field:
+  enabled: true
+  density: 20
+  color: "lightgray"
+  alpha: 0.4
+  scale: 25
+  width: 0.003
+
+curves:
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.0, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style:
+      linestyle: "-"
+      color: "blue"
+      linewidth: 2.0
+
+axes:
+  xlim: [-1.5, 1.5]
+  ylim: [-1.5, 1.5]
+  xlabel: "x"
+  ylabel: "y"
+  grid: true
+  equal_aspect: true
+
+output: "test_phase.svg"

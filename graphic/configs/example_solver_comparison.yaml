@@ -1,0 +1,63 @@
+type: phase_portrait
+
+vector_field:
+  enabled: true
+  density: 20
+  color: "gray"
+  alpha: 0.5
+  scale: 25
+  width: 0.004
+
+curves:
+  # Траектория с методом DOP853 (по умолчанию, высокая точность)
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [0.5, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    solver_method: "DOP853"  # 8-й порядок точности
+    style:
+      linestyle: "-"
+      color: "blue"
+      linewidth: 2.0
+      label: "DOP853"
+
+  # Траектория с методом RK45 (быстрее, но менее точный)
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.0, 0.0]
+    params: {n_points: 10000}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    solver_method: "RK45"  # 4-5 порядок точности
+    style:
+      linestyle: "--"
+      color: "red"
+      linewidth: 1.0
+      label: "RK45"
+      dashes: [10, 5]
+
+  # Траектория с методом Radau (для жестких систем)
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.5, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    solver_method: "Radau"  # Неявный метод для жестких систем
+    style:
+      linestyle: "-."
+      color: "green"
+      linewidth: 2.0
+      label: "Radau"
+
+axes:
+  xlim: [-2.0, 2.0]
+  ylim: [-2.0, 2.0]
+  xlabel: "x"
+  ylabel: "y"
+  grid: true
+  equal_aspect: true
+
+output: "example_solver_comparison.svg"

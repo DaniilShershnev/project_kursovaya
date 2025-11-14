@@ -1,0 +1,26 @@
+type: ode_time
+
+curves:
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.0, 0.0]
+    params: {}
+    t_span: [0, 10]
+    styles:
+      - linestyle: "-"
+        color: "blue"
+        linewidth: 1.5
+        label: "x(t)"
+      - linestyle: "--"
+        color: "red"
+        linewidth: 1.5
+        label: "y(t)"
+
+axes:
+  xlim: [0, 10]
+  ylim: [-1.5, 1.5]
+  xlabel: "t"
+  ylabel: "значение"
+  grid: true
+
+output: "example_ode_time.svg"

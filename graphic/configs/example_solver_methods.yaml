@@ -1,0 +1,28 @@
+type: ode_time
+
+curves:
+  # Первая кривая использует метод RK45
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.0, 0.0]
+    params: {}
+    t_span: [0, 10]
+    solver_method: "RK45"  # Метод Рунге-Кутты 4-5 порядка
+    styles:
+      - linestyle: "-"
+        color: "blue"
+        linewidth: 1.5
+        label: "x(t) - RK45"
+      - linestyle: "--"
+        color: "red"
+        linewidth: 1.5
+        label: "y(t) - RK45"
+
+axes:
+  xlim: [0, 10]
+  ylim: [-1.5, 1.5]
+  xlabel: "t"
+  ylabel: "значение"
+  grid: true
+
+output: "example_solver_rk45.svg"

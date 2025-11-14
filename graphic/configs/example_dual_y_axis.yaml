@@ -1,0 +1,45 @@
+type: ode_time
+
+# Пример использования двух осей Y (левая для s, правая для w)
+# Параметр dual_y_axis: true включает вторую ось
+# Параметр use_right_axis: true в стиле кривой рисует ее на правой оси
+
+curves:
+  # Одна кривая с разными начальными условиями
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.5]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      # s(t) рисуем на левой оси (по умолчанию)
+      - {color: "blue", linestyle: "-", linewidth: 2, label: "s(t)"}
+      # w(t) рисуем на ПРАВОЙ оси - добавляем use_right_axis: true
+      - {color: "red", linestyle: "--", linewidth: 2, label: "w(t)", use_right_axis: true}
+
+axes:
+  xlim: [0, 8]
+
+  # Настройки для ЛЕВОЙ оси Y (для s)
+  ylim: [0, 500]
+  ylabel: "s"
+
+  # ВКЛЮЧАЕМ двойную ось Y
+  dual_y_axis: true
+
+  # Настройки для ПРАВОЙ оси Y (для w)
+  ylim_right: [0, 1]
+  ylabel_right: "w"
+  yticks_right: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+
+  # Общие настройки
+  xlabel: "t"
+  xticks: [0, 2, 4, 6, 8]
+  grid: true
+  spines:
+    top: false
+    right: true    # Правая граница должна быть видна для правой оси
+    bottom: true
+    left: true
+
+output: "example_dual_y_axis.svg"

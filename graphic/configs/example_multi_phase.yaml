@@ -1,0 +1,48 @@
+type: phase_portrait
+
+curves:
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [0.5, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style:
+      linestyle: "-"
+      color: "blue"
+      linewidth: 1.5
+      label: "r=0.5"
+  
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.0, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style:
+      linestyle: "-"
+      color: "red"
+      linewidth: 1.5
+      label: "r=1.0"
+  
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.5, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style:
+      linestyle: "-"
+      color: "green"
+      linewidth: 1.5
+      label: "r=1.5"
+
+axes:
+  xlim: [-2, 2]
+  ylim: [-2, 2]
+  xlabel: "x"
+  ylabel: "y"
+  grid: true
+  equal_aspect: true
+
+output: "example_multi_phase.svg"

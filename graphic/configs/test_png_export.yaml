@@ -1,0 +1,22 @@
+type: ode_time
+
+# Тест экспорта в PNG формат
+
+curves:
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.5]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "blue", linestyle: "-", linewidth: 2, label: "s(t)"}
+      - {color: "red", linestyle: "--", linewidth: 2, label: "w(t)"}
+
+axes:
+  xlim: [0, 8]
+  ylim: [0, 500]
+  xlabel: "t"
+  ylabel: "s, w"
+  grid: true
+
+output: "test_png_export.png"

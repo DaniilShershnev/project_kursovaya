@@ -1,0 +1,23 @@
+type: phase_portrait
+
+curves:
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.0, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style:
+      linestyle: "-"
+      color: "green"
+      linewidth: 1.5
+
+axes:
+  xlim: null
+  ylim: null
+  xlabel: "x"
+  ylabel: "y"
+  grid: true
+  equal_aspect: true
+
+output: "example_phase_portrait.svg"

@@ -1,0 +1,93 @@
+type: ode_time
+
+curves:
+  # s0 = 100
+  #equations: ["a * \\exp(v * w) - s * \\exp((v - j) * w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta})", "c * (1 - w * (1 + b*(1+h*s)^2))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.1]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]    #в каких пределах изменяется время t
+    #solver_method: "RK45"
+    styles:
+      - {color: "blue", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.02"}
+      - {color: "blue", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.02", use_right_axis: true}
+  
+  # s0 = 200
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta})", "c * (1 - w * (1 + b*(1+h*s)^2))"]
+    variable_names: [s, w]
+    initial_conditions: [200, 0.2]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]    #в каких пределах изменяется время t
+    #solver_method: "RK45"
+    styles:
+      - {color: "red", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.1"}
+      - {color: "red", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.1", use_right_axis: true}
+  
+  # s0 = 300
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta})", "c * (1 - w * (1 + b*(1+h*s)^2))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.3]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]    #в каких пределах изменяется время t
+    #solver_method: "RK45"
+    styles:
+      - {color: "green", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.3"}
+      - {color: "green", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.3", use_right_axis: true}
+  
+  # s0 = 400
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta})", "c * (1 - w * (1 + b*(1+h*s)^2))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.4]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]    #в каких пределах изменяется время t
+    #solver_method: "RK45"
+    styles:
+      - {color: "orange", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.6"}
+      - {color: "orange", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.6", use_right_axis: true}
+  
+  # s0 = 500
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta})", "c * (1 - w * (1 + b*(1+h*s)^2))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.5]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]    #в каких пределах изменяется время t
+    #solver_method: "RK45"
+    styles:
+      - {color: "purple", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.9"}
+      - {color: "purple", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.9", use_right_axis: true}
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta})", "c * (1 - w * (1 + b*(1+h*s)^2))"]
+    variable_names: [s, w]
+    initial_conditions: [600, 0.6]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]    #в каких пределах изменяется время t
+    #solver_method: "RK45"
+    styles:
+      - {color: "cyan", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.02"}
+      - {color: "cyan", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.02", use_right_axis: true}
+axes:
+  xlim: [0,7]
+  ylim: [0,500]
+  xticks: [0, 2, 4, 5, 6]
+  xlabel: "t"
+  ylabel: "s"
+  dual_y_axis: true
+  ylim_right: [0, 1]
+  ylabel_right: "w"
+  yticks_right: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+
+  grid: false
+
+
+  spines: #настройка осей, пишем false,если ось не нужна, true - видна
+    top: false   
+    right: true
+    bottom: true
+    left: true
+  grid_style: #настрйока сетки
+    j: 0.9  #прозрачность сетки
+    linestyle: ":" #стиль сетки 
+    linewidth: 1  #толщина сетки
+    color: "gray"   #цвет сетки
+
+output: "graphic_with_power_.svg"

@@ -1,0 +1,87 @@
+type: ode_time
+
+# График с двумя осями Y: левая для s (0-500), правая для w (0-1)
+
+curves:
+  # s0 = 100
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "blue", linestyle: "-", linewidth: 1.5, label: "s, s₀=100"}
+      - {color: "blue", linestyle: "--", linewidth: 1.5, label: "w, s₀=100", use_right_axis: true}
+
+  # s0 = 200
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [200, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "red", linestyle: "-", linewidth: 1.5, label: "s, s₀=200"}
+      - {color: "red", linestyle: "--", linewidth: 1.5, label: "w, s₀=200", use_right_axis: true}
+
+  # s0 = 300
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "green", linestyle: "-", linewidth: 1.5, label: "s, s₀=300"}
+      - {color: "green", linestyle: "--", linewidth: 1.5, label: "w, s₀=300", use_right_axis: true}
+
+  # s0 = 400
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "orange", linestyle: "-", linewidth: 1.5, label: "s, s₀=400"}
+      - {color: "orange", linestyle: "--", linewidth: 1.5, label: "w, s₀=400", use_right_axis: true}
+
+  # s0 = 500
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "purple", linestyle: "-", linewidth: 1.5, label: "s, s₀=500"}
+      - {color: "purple", linestyle: "--", linewidth: 1.5, label: "w, s₀=500", use_right_axis: true}
+
+axes:
+  xlim: [0, 8]
+  xticks: [0, 2, 4, 6, 8]
+  xlabel: "t"
+
+  # ЛЕВАЯ ось Y - для s
+  ylim: [0, 500]
+  ylabel: "s"
+
+  # Включаем двойную ось Y
+  dual_y_axis: true
+
+  # ПРАВАЯ ось Y - для w
+  ylim_right: [0, 1]
+  ylabel_right: "w"
+  yticks_right: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+
+  # Настройка границ графика
+  grid: false
+  spines:
+    top: false
+    right: true   # Правая граница должна быть видна для правой оси
+    bottom: true
+    left: true
+
+  grid_style:
+    alpha: 0.9
+    linestyle: ":"
+    linewidth: 1
+    color: "gray"
+
+output: "p28_dual_axis.svg"

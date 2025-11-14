@@ -1,0 +1,42 @@
+type: phase_portrait
+
+vector_field:
+  enabled: true
+  density: 20        # количество стрелок по каждой оси 
+  color: "gray"      # цвет стрелок 
+  alpha: 0.5         # прозрачность стрелок
+  scale: 25          # масштаб стрелок, чем больше число, тем короче стрелки
+  width: 0.004       # толщина стрелок
+
+curves:
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [0.5, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style:
+      linestyle: "-"
+      color: "blue"
+      linewidth: 2.0
+  
+  - equations: ["y", "-x"]
+    variable_names: [x, y]
+    initial_conditions: [1.0, 0.0]
+    params: {}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style:
+      linestyle: "-"
+      color: "red"
+      linewidth: 2.0
+
+axes:
+  xlim: [-1.5, 1.5]
+  ylim: [-1.5, 1.5]
+  xlabel: "x"
+  ylabel: "y"
+  grid: true
+  equal_aspect: true
+
+output: "example_vector_field.svg"

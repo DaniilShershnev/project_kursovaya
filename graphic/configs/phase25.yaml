@@ -1,0 +1,194 @@
+type: phase_portrait
+
+vector_field:
+  enabled: true
+  density: 25
+  color: "pink"
+  alpha: 0.8
+  scale: 25
+  width: 0.003
+
+curves:
+  # w₀ = 0.02
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.02]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "blue", linestyle: "-", linewidth: 1.5, label: "w₀=0.02"}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.02]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "blue", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [450, 0.02]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "blue", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.02]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "blue", linestyle: "-", linewidth: 1.5}
+  
+  # w₀ = 0.1
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.1]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "red", linestyle: "-", linewidth: 1.5, label: "w₀=0.1"}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.1]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "red", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [450, 0.1]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "red", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.1]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "red", linestyle: "-", linewidth: 1.5}
+  
+  # w₀ = 0.3
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.3]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "green", linestyle: "-", linewidth: 1.5, label: "w₀=0.3"}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.3]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "green", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [450, 0.3]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "green", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.3]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "green", linestyle: "-", linewidth: 1.5}
+  
+  # w₀ = 0.6
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.6]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "orange", linestyle: "-", linewidth: 1.5, label: "w₀=0.6"}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.6]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "orange", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [450, 0.6]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "orange", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.6]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "orange", linestyle: "-", linewidth: 1.5}
+  
+  # w₀ = 0.9
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.9]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "purple", linestyle: "-", linewidth: 1.5, label: "w₀=0.9"}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.9]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "purple", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [450, 0.9]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "purple", linestyle: "-", linewidth: 1.5}
+  
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.9]
+    params: {c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 100]
+    var_indices: [0, 1]
+    style: {color: "purple", linestyle: "-", linewidth: 1.5}
+
+axes:
+  xlim: [0, 550]
+  ylim: [-0.1, 1.1]
+  xlabel: "s"
+  ylabel: "w"
+  grid: true
+  spines:
+    top: false
+    right: false
+    bottom: true
+    left: true
+  grid_style:
+    alpha: 0.2
+    linestyle: "--"
+    linewidth: 0.5
+    color: "gray"
+
+output: "scientific_phase_full.svg"

@@ -1,0 +1,25 @@
+type: ode_time
+
+curves:
+  - equations: ["-s * \\exp(-w)", "c * (1 - w - b * \\exp(h * s) * (1 + w))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.02]
+    params:
+      c: 0.3
+      b: 1.0e-12
+      h: 0.07
+      n_points: 10000000000
+    t_span: [0, 6]
+    solver_method: "RK45"  
+    styles:
+    - {color: "blue", linestyle: "-", linewidth: 1.5, label: "s(t)"}
+    - {color: "red", linestyle: "--", linewidth: 1.5, label: "w(t)"}
+
+axes:
+  xlim: [0, 6]
+  ylim: [0, 500]
+  xlabel: "t"
+  ylabel: "значение"
+  grid: false
+
+output: "1test.svg"
