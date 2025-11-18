@@ -4,6 +4,10 @@ __pycache__/
 *$py.class
 *.so
 
+# Archive files
+*.tar.gz
+*.zip
+
 # Distribution / packaging
 .Python
 build/
