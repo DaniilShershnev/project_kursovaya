@@ -1,0 +1,74 @@
+# Рис. 9б: Фазовый портрет для степенной модели
+# Модель: ṡ = a·w^β - s·w^(β-α), ẇ = c[1 - w(1 + b·e^(hs))]
+
+type: phase_portrait
+
+curves:
+  # w₀ = 0.02
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.02]
+    params: {a: 170, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 10]
+    var_indices: [0, 1]  # s vs w
+    style: {color: "cyan", linestyle: "-", linewidth: 1.5, label: "w₀=0.02"}
+
+  # w₀ = 0.1
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.1]
+    params: {a: 170, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style: {color: "black", linestyle: "-", linewidth: 1.5, label: "w₀=0.1"}
+
+  # w₀ = 0.3
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.3]
+    params: {a: 170, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style: {color: "green", linestyle: "-", linewidth: 1.5, label: "w₀=0.3"}
+
+  # w₀ = 0.6
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.6]
+    params: {a: 170, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style: {color: "blue", linestyle: "-", linewidth: 1.5, label: "w₀=0.6"}
+
+  # w₀ = 0.9
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.9]
+    params: {a: 170, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 10]
+    var_indices: [0, 1]
+    style: {color: "red", linestyle: "-", linewidth: 1.5, label: "w₀=0.9"}
+
+# Векторное поле
+vector_field:
+  enabled: true
+  density: 20
+  color: "lightgray"
+  alpha: 0.4
+  scale: 30
+  width: 0.003
+
+axes:
+  xlim: [250, 450]
+  ylim: [0, 1]
+  xlabel: "s"
+  ylabel: "w"
+  grid: true
+  equal_aspect: false
+  grid_style:
+    alpha: 0.3
+    linestyle: ":"
+    linewidth: 0.8
+    color: "gray"
+
+output: "fig9b_power_phase.svg"
