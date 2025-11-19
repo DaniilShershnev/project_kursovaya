@@ -1,0 +1,82 @@
+type: ode_time
+
+curves:
+  # Степенная модель - только степенные зависимости
+  # s0 = 100, w0 = 0.1
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta}", "c * (1 - w * (1 + b * (1 + h * s)^{2}))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.1]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "blue", linestyle: "-", linewidth: 1.5, label: "s₁"}
+      - {color: "blue", linestyle: "--", linewidth: 1.5, label: "w₁", use_right_axis: true}
+
+  # s0 = 200, w0 = 0.2
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta}", "c * (1 - w * (1 + b * (1 + h * s)^{2}))"]
+    variable_names: [s, w]
+    initial_conditions: [200, 0.2]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "red", linestyle: "-", linewidth: 1.5, label: "s₂"}
+      - {color: "red", linestyle: "--", linewidth: 1.5, label: "w₂", use_right_axis: true}
+
+  # s0 = 300, w0 = 0.3
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta}", "c * (1 - w * (1 + b * (1 + h * s)^{2}))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.3]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "green", linestyle: "-", linewidth: 1.5, label: "s₃"}
+      - {color: "green", linestyle: "--", linewidth: 1.5, label: "w₃", use_right_axis: true}
+
+  # s0 = 400, w0 = 0.4
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta}", "c * (1 - w * (1 + b * (1 + h * s)^{2}))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.4]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "orange", linestyle: "-", linewidth: 1.5, label: "s₄"}
+      - {color: "orange", linestyle: "--", linewidth: 1.5, label: "w₄", use_right_axis: true}
+
+  # s0 = 500, w0 = 0.5
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta}", "c * (1 - w * (1 + b * (1 + h * s)^{2}))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.5]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "purple", linestyle: "-", linewidth: 1.5, label: "s₅"}
+      - {color: "purple", linestyle: "--", linewidth: 1.5, label: "w₅", use_right_axis: true}
+
+  # s0 = 600, w0 = 0.6
+  - equations: ["a * w^{\\betta} - s * w^{-\\alpha + \\betta}", "c * (1 - w * (1 + b * (1 + h * s)^{2}))"]
+    variable_names: [s, w]
+    initial_conditions: [600, 0.6]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "cyan", linestyle: "-", linewidth: 1.5, label: "s₆"}
+      - {color: "cyan", linestyle: "--", linewidth: 1.5, label: "w₆", use_right_axis: true}
+
+axes:
+  xlim: [0, 7]
+  ylim: [0, 500]
+  xticks: [0, 2, 4, 6]
+  xlabel: "t"
+  ylabel: "s"
+  dual_y_axis: true
+  ylim_right: [0, 1]
+  ylabel_right: "w"
+  yticks_right: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+  grid: false
+  spines:
+    top: false
+    right: true
+    bottom: true
+    left: true
+
+output: "power_model.svg"

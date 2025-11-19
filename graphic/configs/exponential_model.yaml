@@ -1,0 +1,72 @@
+type: ode_time
+
+curves:
+  # Экспоненциальная модель - только экспоненты
+  # s0 = 100, w0 = 0.8
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [100, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "cyan", linestyle: "-", linewidth: 1.5, label: "s₁", use_right_axis: false}
+      - {color: "cyan", linestyle: "--", linewidth: 1.5, label: "w₁", use_right_axis: true}
+
+  # s0 = 200, w0 = 0.8
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [200, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "black", linestyle: "-", linewidth: 1.5, label: "s₂"}
+      - {color: "black", linestyle: "--", linewidth: 1.5, label: "w₂", use_right_axis: true}
+
+  # s0 = 300, w0 = 0.8
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [300, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "blue", linestyle: "-", linewidth: 1.5, label: "s₃"}
+      - {color: "blue", linestyle: "--", linewidth: 1.5, label: "w₃", use_right_axis: true}
+
+  # s0 = 400, w0 = 0.8
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "green", linestyle: "-", linewidth: 1.5, label: "s₄"}
+      - {color: "green", linestyle: "--", linewidth: 1.5, label: "w₄", use_right_axis: true}
+
+  # s0 = 500, w0 = 0.8
+  - equations: ["a * \\exp(\\betta * w) - s * \\exp((\\betta - \\alpha) * w)", "c * (1 - w * (1 + b * \\exp(h * s)))"]
+    variable_names: [s, w]
+    initial_conditions: [500, 0.8]
+    params: {a: 0, alpha: 2, betta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "red", linestyle: "-", linewidth: 1.5, label: "s₅"}
+      - {color: "red", linestyle: "--", linewidth: 1.5, label: "w₅", use_right_axis: true}
+
+axes:
+  xlim: [0, 7]
+  ylim: [0, 500]
+  xticks: [0, 2, 4, 6]
+  xlabel: "t"
+  ylabel: "s"
+  dual_y_axis: true
+  ylim_right: [0, 1]
+  ylabel_right: "w"
+  yticks_right: [0, 0.2, 0.4, 0.6, 0.8, 1.0]
+  grid: false
+  spines:
+    top: false
+    right: true
+    bottom: true
+    left: true
+
+output: "exponential_model.svg"
