@@ -1,0 +1,75 @@
+# Рис. 10: Решения s(t) и w(t) для степенной модели при a=0 (свободное течение)
+# Модель: ṡ = a·w^β - s·w^(β-α), ẇ = c[1 - w(1 + b·e^(hs))]
+# Параметры: a=0 (свободное течение без накопления структуры)
+
+type: ode_time
+
+curves:
+  # w₀ = 0.02
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.02]
+    params: {a: 0, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "cyan", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.02"}
+      - {color: "cyan", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.02", use_right_axis: true}
+
+  # w₀ = 0.1
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.1]
+    params: {a: 0, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "black", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.1"}
+      - {color: "black", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.1", use_right_axis: true}
+
+  # w₀ = 0.3
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.3]
+    params: {a: 0, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "green", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.3"}
+      - {color: "green", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.3", use_right_axis: true}
+
+  # w₀ = 0.6
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.6]
+    params: {a: 0, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "blue", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.6"}
+      - {color: "blue", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.6", use_right_axis: true}
+
+  # w₀ = 0.9
+  - equations: ["a \\cdot (w + 0.0001)^{\\beta} - s \\cdot (w + 0.0001)^{\\beta - \\alpha}", "c \\cdot (1 - w \\cdot (1 + b \\cdot \\exp(h \\cdot s)))"]
+    variable_names: [s, w]
+    initial_conditions: [400, 0.9]
+    params: {a: 0, alpha: 2, beta: 1, c: 0.3, b: 1.0e-12, h: 0.07}
+    t_span: [0, 8]
+    styles:
+      - {color: "red", linestyle: "-", linewidth: 1.5, label: "s, w₀=0.9"}
+      - {color: "red", linestyle: "--", linewidth: 1.5, label: "w, w₀=0.9", use_right_axis: true}
+
+axes:
+  xlim: [0, 8]
+  ylim: [0, 500]
+  xlabel: "t"
+  ylabel: "s"
+
+  dual_y_axis: true
+  ylim_right: [0, 1]
+  ylabel_right: "w"
+
+  grid: true
+  grid_style:
+    alpha: 0.3
+    linestyle: ":"
+    linewidth: 0.8
+    color: "gray"
+
+output: "fig10_power_solutions_a0.svg"
