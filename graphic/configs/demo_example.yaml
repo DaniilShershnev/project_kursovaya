@@ -1,0 +1,38 @@
+type: function
+
+curves:
+  - formula: "\\sin(x)"
+    params: {}
+    x_range: [0, 6.28]
+    style:
+      linestyle: "-"
+      color: "blue"
+      linewidth: 2
+      label: "sin(x)"
+
+  - formula: "\\cos(x)"
+    params: {}
+    x_range: [0, 6.28]
+    style:
+      linestyle: "-"
+      color: "red"
+      linewidth: 2
+      label: "cos(x)"
+
+  - formula: "\\sin(x) * \\cos(x)"
+    params: {}
+    x_range: [0, 6.28]
+    style:
+      linestyle: "--"
+      color: "green"
+      linewidth: 1.5
+      label: "sin(x)·cos(x)"
+
+axes:
+  xlim: [0, 6.28]
+  ylim: [-1.5, 1.5]
+  xlabel: "x"
+  ylabel: "y"
+  grid: true
+
+output: "demo_example.svg"
